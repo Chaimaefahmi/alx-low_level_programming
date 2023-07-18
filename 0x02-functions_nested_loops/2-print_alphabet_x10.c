@@ -3,22 +3,22 @@
  * print_alphabet_x10 - prints 10 times the alphabet, in lowercase,
  * followed by a new line
  */
-void print_alphabet_x10(void);
+void print_alphabet_x10(void)
 {
-	int coun;
-	int lett;
+	int ch;
+	int i;
 
-	coun = 0;
+	i = 0;
 
-	while (coun++ <= 9)
+	while (i < 10)
 	{
-		lett = 'a';
-	while (lett <= 'z')
-	{
-		_putchar(lett);
-		lett++;
-	}
-	_putchar('\n');
-	coun++;
+		ch = 'a';
+		while (ch <= 'z')
+		{
+			_putchar(ch);
+			ch++;
+		}
+		_putchar('\n');
+		i++;
 	}
 }
