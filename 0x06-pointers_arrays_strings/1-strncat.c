@@ -1,12 +1,15 @@
 #include "main.h"
+#include <string.h>
 
 /**
- * _strcat - function that concatenates two strings.
+ * _strncat -  function that concatenates two strings.
  * @src: cadena a copiar
  * @dest: destino de la cadena.
+ * @n: number.
  * Return: dest.
  */
-char *_strncat(char *dest, char *src, int n);
+
+char *_strncat(char *dest, char *src, int n)
 {
 	int index = strlen(dest);
 	int a = 0;
