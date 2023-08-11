@@ -3,14 +3,15 @@
 #include "main.h"
 /**
  * _strlen - calculate and return string length
- * @sring: string
+ * @string: string
  * Return: string length
  */
 int _strlen(char *string)
 {
 	int i;
 
-	for (i = 0; string[i] != '\0'; i++);
+	for (i = 0; string[i] != '\0'; i++)
+		;
 	return (i);
 }
 /**
@@ -37,9 +38,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		num = _strlen(s2);
 
 	len = _strlen(s1) + num + 1; /* +1 to account for null pointer */
+
 	ptr = malloc(sizeof(*ptr) * len); /* malloc and check for error */
-	if (ptr == NULL);
-return (NULL);
+	if (ptr == NULL)
+		return (NULL);
 
 	for (i = 0; s1[i] != '\0'; i++) /* concat */
 		ptr[i] = s1[i];
