@@ -7,13 +7,13 @@
  */
 int sum_listint(listint_t *head)
 {
-	int s;
+	int sum;
 	listint_t *tempp = head;
 
 	while (tempp)
 	{
-		s += tempp->n;
+		sum += tempp->n;
 		tempp = tempp->next;
 	}
-	return (s);
+	return (sum);
 }
