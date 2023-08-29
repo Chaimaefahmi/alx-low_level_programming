@@ -3,9 +3,9 @@
 /**
  * nsert_nodeint_at_index - inserts a new node in a linked list
  * @head: pointer
- * @idx:  the index of the list where the new node should be added. Index starts at 0
+ * @idx: int
  * @n: int
- * Return: the address of the new node, or NULL if it failed, if it is not possible to add the new node at index idx, do not add the new node and return NULL
+ * Return: the address of the new node, or NULL if it failed
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
@@ -27,7 +27,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (node);
 	}
 
-	for (i = 0; tempp && m < idx; m++)
+	for (m = 0; tempp && m < idx; m++)
 	{
 		if (m == idx - 1)
 		{
