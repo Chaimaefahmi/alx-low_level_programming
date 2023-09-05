@@ -4,7 +4,7 @@
  * create_file - Creates a file.
  * @filename: pointer const char
  * @text_content: pointer string
- * Return: Returns: 1 on success, -1 on failure (file can not be created, 
+ * Return: Returns: 1 on success, -1 on failure (file can not be created,
  * file can not be written, write “fails”, etc…)
  * if filename is NULL return -1
  */
