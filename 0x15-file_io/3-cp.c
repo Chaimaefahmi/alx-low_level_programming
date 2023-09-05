@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * create_buffer - 1024 bytes for a buffer.
@@ -57,7 +59,7 @@ void close_file(int fl)
 
 int main(int argc, char *argv[])
 {
-	int from, to, r, w;
+	int file_from, file_to, r, w;
 	char *buffer;
 
 	if (argc != 3)
@@ -66,13 +68,13 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buffer = alloc_buffer(argv[2]);
-	from = open(argv[1], O_RDONLY);
+	buffer = create_buffer(argv[2]);
+	file_from = open(argv[1], O_RDONLY);
 	r = read(file_from, buffer, 1024);
-	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (from == -1 || r == -1)
+		if (file_from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -80,21 +82,21 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		w = write(to, buffer, r);
-		if (to == -1 || w == -1)
+		w = write(file_to, buffer, r);
+		if (file_to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
 		}
-		r = read(from, buffer, 1024);
-		to = open(argv[2], O_WRONLY | O_APPEND);
+		r = read(file_from, buffer, 1024);
+		file_to = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
 
 	free(buffer);
-	close_file(from);
-	close_file(to);
+	close_file(file_from);
+	close_file(file_to);
 	return (0);
 }
