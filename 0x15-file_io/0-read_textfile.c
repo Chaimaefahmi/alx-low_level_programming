@@ -6,8 +6,8 @@
  * @filename: const char
  * @letters: the number of letters to be read
  * Return: if the file can not be opened or read, return 0
- *           if the file can not be opened or read, return 0
- *           if write fails or does not write the expected amount of bytes, return 0
+ *      if the file can not be opened or read, return 0
+ *      if write fails or does not write the expected amount of bytes, return 0
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -16,7 +16,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t w;
 	ssize_t v;
 
-	fd = open(filename, O_RDONLY);
+	fl = open(filename, O_RDONLY);
 	if (fl == -1)
 		return (0);
 	bufff = malloc(sizeof(char) * letters);
