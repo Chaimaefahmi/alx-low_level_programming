@@ -2,13 +2,13 @@
 
 /**
  * binary_to-uint -converts a binary number to an unsigned int.
- * @b: pointing to a string of 0 and 1 chars.
- * Return: the converted number, or 0.
+ * @b: pointing to a string of 0 and 1 chars
+ * Return: the converted number, or 0
  */
 unsigned int binary_to_uint(const char *b)
 {
 	int i;
-	unsigned int l = 0;
+	unsigned int j = 0;
 
 	if (!b)
 		return (0);
@@ -17,8 +17,8 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[i] < '0' || b[i] > '1')
 			return (0);
-		l = 2 * l + (b[i] - '0');
+		j = 2 * j + (b[i] - '0');
 	}
 
-	return (l);
+	return (j);
 }
